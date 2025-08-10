@@ -7,9 +7,9 @@ img { display: block; max-width: 100%; height: auto; }
 
 /* ---------- Theme Tokens ---------- */
 :root{
-  --bg-1: #281a41;        /* navy start */
-  --bg-2: #442963;        /* mid navy */
-  --bg-3: #5d359c;        /* deep navy end */
+  --bg-1: rgb(52, 51, 54);        /* navy start */
+  --bg-2: #656368;        /* mid navy */
+  --bg-3: #b4b1b9;        /* deep navy end */
 
   --surface: rgba(255,255,255,0.06);  /* card glass */
   --surface-strong: rgba(255,255,255,0.12);
@@ -17,10 +17,10 @@ img { display: block; max-width: 100%; height: auto; }
   --muted: #bcc7d8;
 
   --action-bg: #f1f3f5;       /* button bg (grey) */
-  --action-text: #8ec8ff;     /* light blue text */
+  --action-text: #3b9dfa;     /* light blue text */
   --action-border: #cfd6e1;
 
-  --purple: #7a5af8;          /* title purple */
+  --purple: #4f74ad;          /* title purple */
   --title-pill-1: #ffffffde;  /* white/silver gradient */
   --title-pill-2: #dfe3ea;
 
@@ -257,9 +257,9 @@ body{
    Global / Reset
 ========================= */
 :root{
-    --bg-1:#2e0854;
-    --bg-2:#5c2a9d;
-    --bg-3:#7b3fe4;
+    --bg-1:#383738;
+    --bg-2:#88878a;
+    --bg-3:#38363a;
   
     --surface: rgba(255,255,255,.06);
     --surface-strong: rgba(255,255,255,.1);
@@ -296,7 +296,7 @@ body{
     display:inline-block;
     margin: 0 auto var(--gap);
     padding: .9rem 1.6rem;
-    color:#5d3bb0;
+    color:#001ea1;
     font-weight:800;
     font-size: clamp(1.6rem, 4vw, 2.4rem);
     letter-spacing:.02em;
@@ -358,7 +358,7 @@ body{
     padding:.7rem 1.1rem;
     border:2px solid #b9c2d6;
     background:#ffffff;
-    color:#63a8ff;            /* light blue text */
+    color:#3c74db;            /* light blue text */
     transition: transform .12s ease, box-shadow .2s ease;
     box-shadow: var(--shadow-soft);
   }
@@ -380,7 +380,7 @@ body{
   }
   .back-home:hover{
     background:#fff;
-    color:#5c2a9d;
+    color:#655c70;
     transform: translateY(-2px);
   }
   
