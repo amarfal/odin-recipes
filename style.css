@@ -1,0 +1,446 @@
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body, h1, h2, h3, h4, p, ul { margin: 0; }
+img { display: block; max-width: 100%; height: auto; }
+
+/* ---------- Theme Tokens ---------- */
+:root{
+  --bg-1: #281a41;        /* navy start */
+  --bg-2: #442963;        /* mid navy */
+  --bg-3: #5d359c;        /* deep navy end */
+
+  --surface: rgba(255,255,255,0.06);  /* card glass */
+  --surface-strong: rgba(255,255,255,0.12);
+  --text: #eaf2ff;
+  --muted: #bcc7d8;
+
+  --action-bg: #f1f3f5;       /* button bg (grey) */
+  --action-text: #8ec8ff;     /* light blue text */
+  --action-border: #cfd6e1;
+
+  --purple: #7a5af8;          /* title purple */
+  --title-pill-1: #ffffffde;  /* white/silver gradient */
+  --title-pill-2: #dfe3ea;
+
+  --radius: 30px;
+  --shadow: 0 10px 24px rgba(0,0,0,.25);
+}
+
+/* ---------- Base ---------- */
+body{
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background:
+    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-3) 100%);
+}
+
+/* page wrapper if you want centered max-width content */
+.page { min-height: 100dvh; display: flex; flex-direction: column; }
+
+/* ---------- Containers ---------- */
+.container{
+  width: min(1200px, 92vw);
+  margin-inline: auto;
+  padding: 2.5rem 0 3.5rem;
+}
+
+/* ---------- Hero / Title ---------- */
+.hero{
+  display: grid;
+  place-items: center;
+  padding: 2.25rem 1rem 0.5rem;
+}
+
+.hero__title{
+  color: var(--purple);
+  font-weight: 700;
+  font-size: clamp(2rem, 4.2vw + 1rem, 3.5rem);
+  padding: .8rem 1.5rem;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--title-pill-1), var(--title-pill-2));
+  box-shadow: var(--shadow);
+}
+
+/* ---------- Cards Grid ---------- */
+.cards{
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 2rem;
+}
+
+/* ---------- Card ---------- */
+.card{
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem 1.25rem 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card__img{
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: calc(var(--radius) - 6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.28);
+}
+
+.card__caption{
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: .2px;
+  color: var(--text);
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+
+  text-decoration: none;
+  font-weight: 600;
+
+  padding: .7rem 1.2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--action-border);
+  box-shadow: var(--shadow);
+  transition: transform .12s ease, filter .15s ease, background-color .15s ease;
+}
+
+.btn--ghost{
+  color: var(--action-text);
+  background: var(--action-bg);
+}
+
+.btn:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+/* ---------- Footer ---------- */
+.footer{
+  margin-top: auto;
+  padding: 2rem 0 2.75rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* ---------- Small Tweaks for Very Large Screens ---------- */
+@media (min-width: 1400px){
+  .container{ width: min(1280px, 90vw); }
+}
+
+/* ================================
+   Recipe Pages
+   ================================ */
+
+   .recipe-hero {
+    width: min(1100px, 94vw);
+    margin: 2rem auto 0;
+    padding: 1rem;
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+  
+  .recipe-hero__img {
+    width: 100%;
+    border-radius: calc(var(--radius) - 6px);
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    box-shadow: 0 8px 18px rgba(0,0,0,.28);
+  }
+  
+  .recipe-title {
+    display: grid;
+    place-items: center;
+    margin-top: 1.25rem;
+  }
+  
+  .recipe-title__pill {
+    color: var(--purple);
+    background: linear-gradient(135deg, var(--title-pill-1), var(--title-pill-2));
+    border-radius: var(--radius);
+    padding: .75rem 1.25rem;
+    font-weight: 700;
+    font-size: clamp(1.5rem, 2.6vw + 1rem, 2.2rem);
+    box-shadow: var(--shadow);
+  }
+  
+  /* main 2-col layout for recipe */
+  .recipe-grid {
+    width: min(1100px, 94vw);
+    margin: 2rem auto;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+  
+  @media (min-width: 900px) {
+    .recipe-grid {
+      grid-template-columns: 1fr 1.4fr; /* ingredients left, steps right */
+    }
+  }
+  
+  .card--tight {
+    padding: 1rem 1.25rem;
+  }
+  
+  .section-title {
+    font-weight: 700;
+    margin-bottom: .75rem;
+    color: var(--text);
+  }
+  
+  .ingredients-list {
+    margin: .5rem 0 0;
+    padding-left: 1.1rem;
+  }
+  .ingredients-list li {
+    margin: .3rem 0;
+    color: var(--muted);
+  }
+  
+  /* Steps */
+  .steps {
+    display: grid;
+    gap: 1rem;
+  }
+  .step {
+    background: rgba(255,255,255,0.04);
+    border-radius: calc(var(--radius) - 8px);
+    padding: .85rem;
+    box-shadow: 0 6px 14px rgba(0,0,0,.18);
+  }
+  .step__header {
+    display: flex; align-items: center; gap: .5rem;
+    font-weight: 700;
+  }
+  .badge {
+    display: inline-grid; place-items: center;
+    width: 30px; height: 30px;
+    border-radius: 999px;
+    background: var(--purple);
+    color: white;
+    font-size: .95rem;
+    box-shadow: var(--shadow);
+  }
+  .step__text {
+    color: var(--muted);
+    margin-top: .5rem;
+    line-height: 1.55;
+  }
+  .step__img {
+    width: 100%;
+    border-radius: calc(var(--radius) - 10px);
+    margin-top: .6rem;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  
+  /* Back/Home actions */
+  .recipe-actions {
+    width: min(1100px, 94vw);
+    margin: .5rem auto 3rem;
+    display: flex;
+    gap: .75rem;
+    justify-content: flex-end;
+  }
+
+  /* =========================
+   Global / Reset
+========================= */
+:root{
+    --bg-1:#2e0854;
+    --bg-2:#5c2a9d;
+    --bg-3:#7b3fe4;
+  
+    --surface: rgba(255,255,255,.06);
+    --surface-strong: rgba(255,255,255,.1);
+    --text:#f3f3f8;
+    --muted:#cfd0f6;
+  
+    --card-radius: 30px;
+    --gap: 30px;
+  
+    --shadow: 0 10px 30px rgba(0,0,0,.35);
+    --shadow-soft: 0 6px 18px rgba(0,0,0,.25);
+  }
+  
+  *,*::before,*::after{ box-sizing: border-box; }
+  html,body{ height:100%; }
+  body{
+    margin:0;
+    color:var(--text);
+    font: 16px/1.55 "Segoe UI", Roboto, system-ui, -apple-system, Arial, sans-serif;
+    background: linear-gradient(180deg, var(--bg-1), var(--bg-2), var(--bg-3));
+    background-attachment: fixed;
+  }
+  
+  /* A centered page wrapper */
+  .container{
+    width:min(1100px, 92vw);
+    margin: clamp(16px, 3vw, 50px) auto;
+  }
+  
+  /* =========================
+     Title / header pill
+  ========================= */
+  .title-pill{
+    display:inline-block;
+    margin: 0 auto var(--gap);
+    padding: .9rem 1.6rem;
+    color:#5d3bb0;
+    font-weight:800;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    letter-spacing:.02em;
+    border-radius: var(--card-radius);
+    background: linear-gradient(135deg,#ffffff,#dfe2ea);
+    box-shadow: var(--shadow-soft);
+  }
+  
+  /* =========================
+     Grid (Index)
+  ========================= */
+  .grid{
+    display:grid;
+    gap: var(--gap);
+    grid-template-columns: repeat( auto-fit, minmax(260px, 1fr) );
+  }
+  
+  /* =========================
+     Cards (universal)
+  ========================= */
+  .card{
+    background: var(--surface);
+    border-radius: var(--card-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(4px);
+  }
+  
+  /* when you need a tighter card */
+  .card--tight{ padding: 1rem 1.25rem; }
+  
+  .card img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius: var(--card-radius);
+    box-shadow: var(--shadow-soft);
+  }
+  
+  /* labels under images on index */
+  .card .label{
+    margin-top:.9rem;
+    text-align:center;
+    font-weight:700;
+    color: var(--muted);
+    background: var(--surface-strong);
+    padding: .6rem 1rem;
+    border-radius: var(--card-radius);
+  }
+  
+  /* =========================
+     Buttons
+  ========================= */
+  .btn{
+    display:inline-block;
+    text-decoration:none;
+    font-weight:700;
+    border-radius: var(--card-radius);
+    padding:.7rem 1.1rem;
+    border:2px solid #b9c2d6;
+    background:#ffffff;
+    color:#63a8ff;            /* light blue text */
+    transition: transform .12s ease, box-shadow .2s ease;
+    box-shadow: var(--shadow-soft);
+  }
+  .btn:hover{ transform: translateY(-2px); }
+  
+  /* back-to-home (white text on border) */
+  .back-home{
+    display:inline-block;
+    margin-top: var(--gap);
+    padding:.75rem 1.3rem;
+    border-radius: var(--card-radius);
+    border:2px solid #fff;
+    color:#fff;
+    text-decoration:none;
+    font-weight:800;
+    letter-spacing:.02em;
+    transition: background .25s ease,color .25s ease, transform .12s ease;
+    box-shadow: var(--shadow-soft);
+  }
+  .back-home:hover{
+    background:#fff;
+    color:#5c2a9d;
+    transform: translateY(-2px);
+  }
+  
+  /* =========================
+     Sections / spacing
+  ========================= */
+  section{ margin-bottom: var(--gap); }
+  .section-title{
+    margin: 0 0 .75rem;
+    font-weight:800;
+    font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  }
+  
+  /* Steps */
+  .step{ margin-bottom: var(--gap); }
+  .step img{ border-radius: var(--card-radius); }
+  
+  /* small credit text */
+  .credit{
+    font-size:.9rem;
+    color: var(--muted);
+    margin-bottom: var(--gap);
+  }
+  
+  /* =========================
+     Footer Center Button Bar
+  ========================= */
+  .footer-actions{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    margin-top: calc(var(--gap) * 1.2);
+  }
+  
+  /* =========================
+     Utilities
+  ========================= */
+  .center{ text-align:center; }
+  .m-0{ margin:0!important; }
+  .mt{ margin-top: var(--gap)!important; }
+  .mb{ margin-bottom: var(--gap)!important; }
+  
+  /* =========================
+     Recipe Page Layout helpers
+  ========================= */
+  .recipe-hero{ text-align:center; }
+  .recipe-hero img{
+    width:min(700px, 90%);
+    margin: 0 auto;
+  }
+  
+  /* Make lists look a bit nicer on dark bg */
+  ul,ol{ padding-left: 1.25rem; }
+  li{ margin:.35rem 0; }
+  
+  /* =========================
+     Responsive tuning
+  ========================= */
+  @media (max-width: 560px){
+    .card{ padding: 1.1rem; }
+    .title-pill{ padding:.7rem 1.2rem; }
+  }
+  
